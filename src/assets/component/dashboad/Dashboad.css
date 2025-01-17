@@ -1,0 +1,45 @@
+/* Dashboard Container */
+.dashboard-container {
+    display: flex;
+    height: calc(100vh - 60px); /* Adjust height minus navbar */
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 250px;
+    background-color: #34495e;
+    padding: 20px;
+    color: white;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 15px;
+}
+
+.sidebar button {
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    color: white;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar button:hover {
+    background: #1abc9c;
+    border-radius: 5px;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
