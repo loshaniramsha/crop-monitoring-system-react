@@ -1,0 +1,150 @@
+/* General Container */
+.crop-container {
+    width: 70%;
+    margin: 30px auto;
+    padding: 30px;
+    background: linear-gradient(to right, #f0f4f8, #d1e4fc);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form Layout */
+.crop-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+/* Input Fields */
+.crop-form input {
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    width: 250px;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.crop-form input:focus {
+    border-color: #66afe9;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.8);
+    background-color: #ffffff;
+}
+
+/* Button Styling */
+.crop-form button {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 260px;
+}
+
+.crop-form button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+/* Search Input */
+.search-input {
+    padding: 12px;
+    width: 300px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.search-input:focus {
+    border-color: #66afe9;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.8);
+    background-color: #ffffff;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    font-size: 1rem;
+}
+
+/* Table Header */
+th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Action Button Styling in Table */
+button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Button Styling for Delete */
+button.delete-btn {
+    background-color: #dc3545;
+}
+
+button.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    .crop-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .crop-form input,
+    .crop-form button,
+    .search-input {
+        width: 100%;
+    }
+}
+
+
+.btn-edit{
+    background-color: #2c3e50;
+}
+.btn-delete{
+    background-color: #c82333;
+}
+.btn-edit:hover{
+    background-color: #218838;
+}
+.btn-delete:hover{
+    background-color: #d8081e;
+
+}
