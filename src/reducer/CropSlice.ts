@@ -6,6 +6,7 @@ interface Crop {
     scientificName: string;
     category: string;
     season: string;
+    cropImage: string | null; // Storing image URL
     fieldCode: string;
     logId: string;
 }
