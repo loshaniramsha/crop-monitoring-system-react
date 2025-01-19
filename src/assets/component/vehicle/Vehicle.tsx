@@ -1,9 +1,8 @@
-// src/components/VehicleForm.tsx
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addVehicle, updateVehicle, setStaffIds, setSelectedVehicleId } from "../../../reducer/VehicleSlice.ts";
+import { addVehicle, updateVehicle, setStaffIds, setSelectedVehicleId, deleteVehicle } from "../../../reducer/VehicleSlice.ts";
 import { RootState } from "../../store/Store.ts";
-import "../vehicle/Vehicle.css"
+import "../vehicle/Vehicle.css";
 
 export const VehicleForm = () => {
     const dispatch = useDispatch();
@@ -19,7 +18,6 @@ export const VehicleForm = () => {
     });
 
     useEffect(() => {
-        // For this example, let's assume staff IDs are fetched from an API.
         dispatch(setStaffIds(["ST001", "ST002", "ST003"]));
         if (selectedVehicleId) {
             const vehicle = vehicles.find((v) => v.vehicleCode === selectedVehicleId);
@@ -44,7 +42,7 @@ export const VehicleForm = () => {
             staffId: "",
             remark: "",
         });
-        dispatch(setSelectedVehicleId(null)); // Reset the selection
+        dispatch(setSelectedVehicleId(null));
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -53,6 +51,18 @@ export const VehicleForm = () => {
             ...formData,
             [id]: value,
         });
+    };
+
+    const handleEdit = (vehicleCode: string) => {
+        const vehicle = vehicles.find((v) => v.vehicleCode === vehicleCode);
+        if (vehicle) {
+            setFormData(vehicle);
+            dispatch(setSelectedVehicleId(vehicleCode));
+        }
+    };
+
+    const handleDelete = (vehicleCode: string) => {
+        dispatch(deleteVehicle(vehicleCode));
     };
 
     return (
@@ -67,7 +77,7 @@ export const VehicleForm = () => {
                         <option value="">Select Vehicle ID</option>
                         {/* Add vehicle options dynamically here */}
                     </select>
-                    <button className="btn btn-primary" style={{ marginLeft: "10px" }} >Search</button>
+                    <button className="btn btn-primary" style={{ marginLeft: "10px" }}>Search</button>
                 </div>
                 <br />
                 <div className="row">
@@ -161,7 +171,50 @@ export const VehicleForm = () => {
                     {selectedVehicleId ? "Update Vehicle" : "Add Vehicle"}
                 </button>
             </form>
+
+            {/* Vehicle Table */}
+            <h2 className="mt-5">Registered Vehicles</h2>
+            <table className="table table-striped mt-3">
+                <thead>
+                <tr>
+                    <th>Vehicle Code</th>
+                    <th>License Plate</th>
+                    <th>Vehicle Type</th>
+                    <th>State</th>
+                    <th>Staff ID</th>
+                    <th>Remark</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {vehicles.map((vehicle) => (
+                    <tr key={vehicle.vehicleCode}>
+                        <td>{vehicle.vehicleCode}</td>
+                        <td>{vehicle.licensePlate}</td>
+                        <td>{vehicle.vehicleType}</td>
+                        <td>{vehicle.state}</td>
+                        <td>{vehicle.staffId}</td>
+                        <td>{vehicle.remark}</td>
+                        <td>
+                            <button
+                                className="btn btn-warning btn-sm"
+                                onClick={() => handleEdit(vehicle.vehicleCode)}
+                            >
+                                Edit
+                            </button>
+                            <button
+                                className="btn btn-danger btn-sm ml-2"
+                                onClick={() => handleDelete(vehicle.vehicleCode)}
+                            >
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
         </section>
     );
 };
+
 export default VehicleForm;
