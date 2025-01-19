@@ -1,0 +1,42 @@
+.monitoring-container {
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.monitoring-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.preview-img, .table-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.logs-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.logs-table th, .logs-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.logs-table th {
+    background-color: #007bff;
+    color: white;
+}
